@@ -1,13 +1,15 @@
 {
   "name": "express-mongo-boilerplate",
-  "version": "0.0.0",
+  "version": "0.1.0-beta.0",
   "private": false,
   "scripts": {
     "postinstall": "cpy .env.example . --rename=.env && npm run start",
     "start": "npm run remove:build && NODE_ENV=development DEBUG=app:* nodemon --exec 'node -r dotenv/config -r babel-register' --watch .  ./bin/www",
     "build": "npm run remove:build && NODE_ENV=production babel app -d dist",
     "test:server-production": "NODE_ENV=production DEBUG=app:* nodemon ./bin/www --copy-files",
-    "remove:build": "rimraf dist"
+    "remove:build": "rimraf dist",
+    "release:beta": "standard-version -p beta",
+    "release": "standard-version"
   },
   "author": "Yusuf A.H. <yussandeveloper@gmail.com>",
   "dependencies": {
