@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # Created by https://www.gitignore.io/api/node,linux,macos,windows
 
@@ -44,6 +45,8 @@ Temporary Items
 .apdisk
 
 ### Node ###
+=======
+>>>>>>> 822d4f2e0abac0f7ca9f90e6ea1311310b4a5530
 # Logs
 logs
 *.log
@@ -103,6 +106,7 @@ typings/
 # dotenv environment variables file
 .env
 
+<<<<<<< HEAD
 
 ### Windows ###
 # Windows thumbnail cache files
@@ -127,3 +131,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/node,linux,macos,windows
+=======
+>>>>>>> 822d4f2e0abac0f7ca9f90e6ea1311310b4a5530
