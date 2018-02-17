@@ -5,6 +5,8 @@ import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import bodyParser from 'body-parser'
 import dbconnect from './middlewares/database'
+import session from './middlewares/session'
+import language from './middlewares/language'
 
 // routes
 import index from './routes'
@@ -12,12 +14,24 @@ import index from './routes'
 // express declaration
 const app = express()
 
+// database connect
+app.use(dbconnect)
+
+// enable session
+app.use(session)
+
+// enable i18n
+app.use(language)
+
+// global middlewares
+app.use((req, res, next) => {
+  if(!req.session.language) req.session.language = 'en-us'
+  next()
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, '../views'))
 app.set('view engine', 'pug')
-
-// database connect
-app.use(dbconnect)
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
@@ -25,7 +39,7 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../public')))
 
 // routes declaration
 app.use('/', index)

@@ -33,3 +33,8 @@
     NODE_ENV=production node bin/www
     ```
 
+## Documentations
+- [pug](https://pugjs.org/)
+- [mongodb client](https://www.npmjs.com/package/mongodb)
+- [express session](https://github.com/expressjs/session)
+- [i18n express](https://github.com/koalazak/i18n-express)

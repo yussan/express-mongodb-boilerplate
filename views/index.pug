@@ -1,13 +1,16 @@
 extends layout
 
 block content
-  h1 It's Worked
-  p Welcome to #{title}
+  h1 #{translation.hello}
+  p #{translation.introduction}
   p 
-    a(href="/blabla") 404 Test 
+    strong #{translation.test_translation} 
+    a(href="/set-language/en-us" class=language == 'en-us' ? 'active' : '') en-us
     | &nbsp;
-    a(href="/error") Error Test
+    a(href="/set-language/id-id" class=language == 'id-id' ? 'active' : '') id-id
+  p 
+    a(href="/blabla") #{translation.test_error}
     br
-  | Need some more, plase follow my github and gift rate to this repo, thank you
+  | #{translation.thanks}
   br
   a(target="_blank" href="https://github.com/yussan/express-mongodb-boilerplate") https://github.com/yussan/express-mongodb-boilerplate

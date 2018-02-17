@@ -4,7 +4,6 @@ const db = mongodb.MongoClient
 const debug = require('debug')('app:mongo')
 
 export default (req, res, next) => {
-  console.log(process.env)
   db.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_COLLECTION}`, (err, db) => {
     if(err) 
     {
