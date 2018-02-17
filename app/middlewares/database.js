@@ -1,8 +1,11 @@
-const db = require('mongodb').MongoClient
+import mongodb from 'mongodb'
+
+const db = mongodb.MongoClient
 const debug = require('debug')('app:mongo')
 
-module.exports = (req, res, next) => {
-  db.connect('mongodb://webdev:rahasia@localhost:27017/boilerplate-express-mongodb', (err, db) => {
+export default (req, res, next) => {
+  console.log(process.env)
+  db.connect(`mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}/${process.env.MONGO_COLLECTION}`, (err, db) => {
     if(err) 
     {
       debug('[error] to connect mongo')
